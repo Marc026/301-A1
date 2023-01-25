@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "ImageMaker() - Check if default sizes are 0",
+      "setup": "cmake .;make Constructor_Test",
+      "run": "timeout 2m ./Constructor_Test \"Constructor Tests\" -c \"ImageMaker() Test (default constructor)\" -c \"Check if default sizes are 0\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "ImageMaker() - Check default pen color is black",
+      "setup": "cmake .;make Constructor_Test",
+      "run": "timeout 2m ./Constructor_Test \"Constructor Tests\" -c \"ImageMaker() Test (default constructor)\" -c \"Check default pen color is black\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "ImageMaker() - Check if image matrix is initialized to white",
+      "setup": "cmake .;make Constructor_Test",
+      "run": "timeout 2m ./Constructor_Test \"Constructor Tests\" -c \"ImageMaker() Test (default constructor)\" -c \"Check if image matrix is initialized to white\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "ImageMaker(filename) - Test Check default pen color is black",
+      "setup": "cmake .;make Constructor_Test",
+      "run": "timeout 2m ./Constructor_Test \"Constructor Tests\" -c \"Check if image matrix is initialized to white\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Save Load Tests",
+      "setup": "cmake .;make Save_Load_Test",
+      "run": "timeout 2m ./Save_Load_Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Getter Setter Tests",
+      "setup": "cmake .;make Getter_Setter_Test",
+      "run": "timeout 2m ./Getter_Setter_Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 6
+    },
+    {
+      "name": "DrawPixel Testing Valid Input",
+      "setup": "cmake .;make DrawPixel_Test",
+      "run": "timeout 2m ./DrawPixel_Test \"Testing Draw Pixel\" -c \"Testing valid input\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "DrawPixel Testing invalid coordinates",
+      "setup": "cmake .;make DrawPixel_Test",
+      "run": "timeout 2m ./DrawPixel_Test \"Testing Draw Pixel\" -c \"Testing invalid coordinates\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 4
+    },
+    {
+      "name": "DrawLine Tests",
+      "setup": "cmake .;make DrawLine_Test",
+      "run": "timeout 2m ./DrawLine_Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "DrawRectangle Tests",
+      "setup": "cmake .;make DrawRectangle_Test",
+      "run": "timeout 2m ./DrawRectangle_Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 8
+    }
+  ]
+}
