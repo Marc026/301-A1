@@ -1,4 +1,6 @@
 #include "ImageMaker.h"
+#include <fstream>
+#include <string>
 
 // Your code goes here...
 ImageMaker::ImageMaker() {
@@ -7,6 +9,15 @@ ImageMaker::ImageMaker() {
     pen_red = 0;
     pen_green = 0;
     pen_blue = 0;
+    SetWidth(MAX_WIDTH);
+    SetHeight(MAX_HEIGHT);
+    for(int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            image[j][i][RED] = 255;
+            image[j][i][GREEN] = 255;
+            image[j][i][BLUE] = 255;
+        }
+    }
 }
 
 ImageMaker::ImageMaker(string filename) {
@@ -14,10 +25,35 @@ ImageMaker::ImageMaker(string filename) {
 }
 
 void ImageMaker::LoadImage(string filename) {
-
+    string magic;
+    ifstream imageInputFile;
+    imageInputFile.open(filename);
+    imageInputFile >> magic;
+    imageInputFile >> width >> height;
+    imageInputFile >> image[MAX_WIDTH][MAX_HEIGHT][3];  // writing to ofstream
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j < width; j++){
+            imageInputFile >> image [j][i][RED];
+            imageInputFile >> image [j][i][GREEN];
+            imageInputFile >> image [j][i][BLUE];
+        }
+    }
 }
 
 void ImageMaker::SaveImage(string filename) {
+    ofstream imageOutputFile;
+    imageOutputFile.open(filename);
+    imageOutputFile << "P3" << endl; // writing to ofstream
+    imageOutputFile << height << " " << width << endl;
+    imageOutputFile << MAX_COLOR << endl;
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j < width; j++){
+            imageOutputFile << image [j][i][RED] << " ";
+            imageOutputFile << image [j][i][GREEN] << " ";
+            imageOutputFile << image [j][i][BLUE] << " ";
+        }
+        imageOutputFile << endl;
+    }
 
 }
 
