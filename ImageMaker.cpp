@@ -4,7 +4,7 @@
 
 // Your code goes here...
 ImageMaker::ImageMaker() {
-    width = 0;  //testing
+    width = 0;  //testing this
     height = 0;
     pen_red = 0;
     pen_green = 0;
