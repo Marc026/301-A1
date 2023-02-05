@@ -1,7 +1,6 @@
 #include "ImageMaker.h"
 #include <fstream>
 #include <string>
-using namespace std;
 
 // Your code goes here...
 ImageMaker::ImageMaker() {
@@ -10,32 +9,28 @@ ImageMaker::ImageMaker() {
     pen_red = 0;
     pen_green = 0;
     pen_blue = 0;
-    for(int i = 0; i < MAX_HEIGHT; i++){
-        for(int j = 0; j < MAX_WIDTH; j++){
-            image [j][i][RED] = 255;
-            image [j][i][GREEN] = 255;
-            image [j][i][BLUE] = 255;
+    SetWidth(MAX_WIDTH);
+    SetHeight(MAX_HEIGHT);
+    for(int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            image[j][i][RED] = 255;
+            image[j][i][GREEN] = 255;
+            image[j][i][BLUE] = 255;
         }
     }
 }
 
 ImageMaker::ImageMaker(string filename) {
-    pen_red = 0;
-    pen_green = 0;
-    pen_blue = 0;
-
-    LoadImage(filename);
 
 }
 
 void ImageMaker::LoadImage(string filename) {
     string magic;
-    int temp;
     ifstream imageInputFile;
     imageInputFile.open(filename);
     imageInputFile >> magic;
-    imageInputFile >> height >> width;
-    imageInputFile >> temp;  // writing to ofstream
+    imageInputFile >> width >> height;
+    imageInputFile >> image[MAX_WIDTH][MAX_HEIGHT][3];  // writing to ofstream
     for(int i = 0; i < height; i++){
         for(int j = 0; j < width; j++){
             imageInputFile >> image [j][i][RED];
@@ -59,14 +54,15 @@ void ImageMaker::SaveImage(string filename) {
         }
         imageOutputFile << endl;
     }
+
 }
 
 int ImageMaker::GetWidth() {
-    return width;
+    return 0;
 }
 
 int ImageMaker::GetHeight() {
-    return height;
+    return 0;
 }
 
 void ImageMaker::SetWidth(int width) {
